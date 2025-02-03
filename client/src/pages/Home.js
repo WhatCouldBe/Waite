@@ -7,7 +7,6 @@ import {
 } from '../api';
 import Navbar from '../components/Navbar';
 
-
 function formatLocalDate(date) {
   const d = new Date(date.getTime());
   d.setHours(12, 0, 0, 0);
@@ -158,6 +157,14 @@ export default function Home() {
     if (logsMap[key] === 'sober') statusClass = 'day-sober';
     if (logsMap[key] === 'medium') statusClass = 'day-medium';
     if (logsMap[key] === 'heavy') statusClass = 'day-heavy';
+    
+    // Disable future dates by adding a disabled class.
+    const today = new Date();
+    today.setHours(12, 0, 0, 0);
+    if (d > today) {
+      return 'day-cell day-future';
+    }
+    
     if (selectedDate) {
       const sel = new Date(selectedDate);
       sel.setHours(12, 0, 0, 0);
@@ -192,11 +199,27 @@ export default function Home() {
 
   const handleDayClick = (dateObj) => {
     if (!dateObj) return;
-    if (selectedDate && selectedDate.getTime() === dateObj.getTime()) {
-      setIsDayPanelOpen(false);
-      setTimeout(() => setSelectedDate(null), 300);
+    // Normalize the clicked date to noon for comparison.
+    const clicked = new Date(dateObj);
+    clicked.setHours(12, 0, 0, 0);
+    const today = new Date();
+    today.setHours(12, 0, 0, 0);
+    
+    // Do not allow selecting future dates.
+    if (clicked > today) return;
+    
+    // If the same day is clicked...
+    if (selectedDate && formatLocalDate(selectedDate) === formatLocalDate(clicked)) {
+      // For current date, always allow update (keep panel open)
+      if (clicked.getTime() === today.getTime()) {
+        setSelectedDate(clicked);
+        setIsDayPanelOpen(true);
+      } else {
+        setIsDayPanelOpen(false);
+        setTimeout(() => setSelectedDate(null), 300);
+      }
     } else {
-      setSelectedDate(dateObj);
+      setSelectedDate(clicked);
       setIsDayPanelOpen(true);
     }
   };
