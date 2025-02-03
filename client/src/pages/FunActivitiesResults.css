@@ -1,0 +1,113 @@
+.fun-activities-results-container {
+  background-color: transparent; /* changed from #dce1eb to transparent */
+  min-height: 100vh;
+  padding-top: 60px; /* space for navbar */
+  width: 100vw;
+  overflow-x: hidden;
+  display: flex;              /* added for centering */
+  justify-content: center;    /* added for centering */
+  align-items: center;        /* added for   centering */
+}
+
+.fun-activities-results-content {
+  width: 90%;
+  max-width: 1600px;
+  height: 800px;           /* fixed overall height */
+  margin: 2rem auto;
+  background-color: #fff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  overflow: hidden;        /* no outer scrollbars */
+}
+
+/* Header: display selected category and manual selector */
+.results-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.results-header h2 {
+  margin: 0;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.category-selector-manual select {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+/* Two-column layout */
+.results-layout {
+  display: flex;
+  gap: 1rem;
+  height: calc(100% - 50px);  /* allocate space for header */
+}
+
+/* Left column: scrollable list */
+.results-list {
+  flex: 0 0 25%;
+  max-width: 300px;
+  height: 100%;
+  overflow-y: scroll;
+  border-right: 1px solid #eee;
+  padding-right: 1rem;
+}
+
+/* Hide scrollbar for the left column */
+.results-list::-webkit-scrollbar {
+  display: none;
+}
+.results-list {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+/* Ensure the list container takes full height */
+.results-items {
+  height: 100%;
+}
+
+/* Each place item */
+.place-item {
+  padding: 1rem;
+  border: 1px solid #eee;
+  border-radius: 6px;
+  background-color: #f9f9f9;
+  margin-bottom: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.place-item:hover {
+  background-color: #e6f7ff;
+}
+
+.place-item h3 {
+  margin: 0 0 0.5rem 0;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.place-item p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* Right column: map */
+.results-map {
+  flex: 1;
+  height: 100%;
+}
+
+.map-container {
+  width: 100%;
+  height: 100%;
+  position: relative; /* Ensure the container positions its children properly */
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}

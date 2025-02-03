@@ -1,0 +1,50 @@
+/* client/src/components/BackgroundBlobs.css */
+.background-blobs {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;  /* full viewport width */
+  height: 100vh; /* full viewport height */
+  pointer-events: none; /* Allow clicks to pass through */
+  z-index: -2;
+}
+
+.blob {
+  position: absolute;
+  background: #2041f9;
+  opacity: 0.15;
+  filter: blur(75px);
+  border-radius: 50%;
+}
+
+/* Blob positions & sizes – adjust these values as desired */
+.blob1 {
+  width: 300px;
+  height: 300px;
+  top: 10%;
+  left: -100px;
+}
+
+.blob2 {
+  width: 400px;
+  height: 400px;
+  bottom: 20%;
+  background: #8f27d4; /* Cream / offwhite */
+  right: -150px;
+}
+
+.blob3 {
+  width: 250px;
+  height: 250px;
+  top: 50%;
+  left: 60%;
+}
+
+.blob4 {
+  width: 350px;
+  height: 350px;
+  bottom: 10%;
+  left: 10%;
+  background: #6407a3; /* Cream / offwhite */
+  opacity: 0.2;
+}

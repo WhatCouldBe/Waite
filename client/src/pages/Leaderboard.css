@@ -1,0 +1,316 @@
+/* client/src/pages/Leaderboard.css */
+.leaderboard-container {
+  background-color: transparent; /* changed from #dce1eb to transparent */
+  min-height: 100vh;
+  padding-top: 60px;
+  width: 100vw;
+  overflow-x: hidden;
+  /* Disable text selection globally */
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+}
+
+.leaderboard-content {
+  width: 90%;
+  max-width: 1200px;
+  margin: 2rem auto;
+  background-color: #fff;
+  padding: 2rem 3rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  text-align: center;
+  font-family: 'DM Sans', sans-serif;
+  position: relative;
+}
+
+.leaderboard-content h1 {
+  font-size: 2.8rem;
+  margin-bottom: 1.5rem;
+}
+
+.tab-header {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.tab-header button {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  background-color: #3f51b5;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.tab-header button:hover,
+.tab-header button.active {
+  background-color: #2c3b9a;
+  transform: scale(1.05);
+}
+
+.message {
+  margin-bottom: 1rem;
+  color: green;
+  font-weight: bold;
+}
+
+.ranking-selector {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+.ranking-selector label {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.ranking-selector select {
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* View Section */
+.view-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  text-align: left;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.leaderboard-item {
+  padding: 1rem;
+  border: 1px solid #eee;
+  border-radius: 6px;
+  background-color: #f9f9f9;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+}
+
+.leaderboard-item:hover {
+  background-color: #e6f7ff;
+  transform: translateY(-2px);
+}
+
+.leaderboard-item h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.6rem;
+}
+
+.leaderboard-item p {
+  margin: 0.25rem 0;
+  font-size: 1rem;
+  color: #555;
+}
+
+/* Score list in Modal */
+.score-list {
+  margin-top: 3rem;
+  text-align: left;
+}
+
+.score-item {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.score-item:last-child {
+  border-bottom: none;
+}
+
+.score-rank {
+  width: 30px;
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
+
+.score-name {
+  flex: 1;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.score-value {
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+/* Delete Section - now a block element below the score list */
+.delete-section {
+  margin-top: 20px;
+  text-align: right;
+}
+
+.delete-popout {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  animation: fadeIn 0.3s forwards;
+}
+
+.delete-password-input {
+  padding: 0.4rem;
+  font-size: 0.9rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 150px;
+}
+
+.delete-button {
+  padding: 0.4rem 0.8rem;
+  border: none;
+  background-color: #f44336;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.delete-button:hover {
+  background-color: #d32f2f;
+  transform: scale(1.05);
+}
+
+.delete-message {
+  margin-top: 0.5rem;
+  font-weight: bold;
+  color: #f44336;
+}
+
+/* Join and Create Sections */
+.join-section,
+.create-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+
+.join-section input,
+.create-section input {
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 80%;
+}
+
+.join-section button,
+.create-section button {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  background-color: #3f51b5;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.join-section button:hover,
+.create-section button:hover {
+  background-color: #2c3b9a;
+  transform: scale(1.05);
+}
+
+/* Code Input Bubbles - allow text selection */
+.code-input-container,
+.code-input-bubble {
+  user-select: text !important;
+  -webkit-user-select: text !important;
+  -moz-user-select: text !important;
+}
+
+.code-input-container {
+  display: inline-flex;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.code-input-bubble {
+  width: 50px;
+  height: 50px;
+  font-size: 1.5rem;
+  text-align: center;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Modal styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  animation: fadeIn 0.3s forwards;
+}
+
+.modal-content {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 2rem;
+  position: relative;
+  min-width: 300px;
+  max-width: 800px;
+  width: 90%;
+  animation: scaleIn 0.3s forwards;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  text-align: left;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+.fade-in {
+  animation: fadeIn 0.3s forwards;
+}
+
+.fade-out {
+  animation: fadeOut 0.3s forwards;
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.8); }
+  to { transform: scale(1); }
+}
+
+@keyframes scaleOut {
+  from { transform: scale(1); }
+  to { transform: scale(0.8); }
+}
+
+.scale-in {
+  animation: scaleIn 0.3s forwards;
+}
+
+.scale-out {
+  animation: scaleOut 0.3s forwards;
+}

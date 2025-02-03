@@ -1,0 +1,341 @@
+/* Example DM Sans usage */
+.dm-sans-semibold {
+    font-family: "DM Sans", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    font-optical-sizing: auto;
+}
+
+/* Keep a scrollbar always so page won't shift on modal open */
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow-y: scroll;
+}
+
+/* Overall layout */
+.home-container {
+    background-color: transparent;  /* Changed from solid color to transparent */
+    min-height: 100vh;
+    padding-top: 60px; /* Reserve space for fixed navbar */
+}
+
+.home-content {
+    padding-top: 20px;
+}
+
+.home-topbar {
+    display: flex;
+    justify-content: flex-end;
+    padding: 0.5rem 1rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: transparent;
+    z-index: 1100;
+}
+
+.home-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+/* Profile circle */
+.big-profile-container {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 1rem;
+    transition: filter 0.2s ease;
+}
+.big-profile-container:hover {
+    filter: brightness(0.9);
+}
+.big-profile-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.big-profile-initials {
+    background-color: #bbb;
+    color: #fff;
+    font-size: 2rem;
+    font-weight: 600;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.greeting {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+/* Stats row */
+.stats-container {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+.stats-box {
+    flex: 1;
+    background-color: #fff;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding: 1rem;
+    cursor: pointer;
+}
+.stats-box:hover {
+    background-color: #f0f0f0;
+}
+.stats-subtext {
+    margin-top: 0.5rem;
+    font-size: 0.85rem;
+    color: #666;
+    transition: opacity 0.5s ease;
+}
+
+/* Achievements ring container */
+.achievements-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.achievements-ring {
+    margin-bottom: 0.5rem;
+}
+.progress-ring {
+    /* no rotation so text is horizontal */
+}
+
+/* Calendar wrapper */
+.calendar-wrapper {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 1rem 1rem 3rem;
+    width: 420px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+}
+.calendar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.75rem;
+}
+.calendar-month-year {
+    font-size: 1.2rem;
+}
+.cal-nav-btn {
+    background-color: #3f51b5;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    transition: background-color 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.cal-nav-btn:hover {
+    background-color: #2c3b9a;
+}
+
+/* Calendar grid */
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0.4rem;
+    text-align: center;
+}
+.day-labels {
+    margin-bottom: 0.3rem;
+}
+.day-label {
+    font-weight: 600;
+}
+.day-cells {}
+
+/* Day cell */
+.day-cell {
+    width: 50px;
+    height: 50px;
+    background-color: #f5f5f5;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+.day-cell:hover {
+    background-color: #e0e0e0;
+}
+.day-outside {
+    opacity: 0.3;
+    cursor: default;
+}
+/* Status colors */
+.day-sober {
+    background-color: #c8e6c9 !important;
+}
+.day-medium {
+    background-color: #fff9c4 !important;
+}
+.day-heavy {
+    background-color: #ffcdd2 !important;
+}
+.day-selected {
+    box-shadow: inset 0 0 0 3px #3f51b5;
+}
+
+/* Bottom 3 status buttons panel */
+.day-status-panel {
+    width: 420px;
+    margin-bottom: 2rem;
+    height: 0;
+    overflow: hidden;
+    padding: 0;
+    transition: height 0.3s ease, padding 0.3s ease;
+}
+.day-status-panel.open,
+.day-status-panel.opening {
+    height: 60px;
+    padding: 0.5rem 0;
+}
+.day-status-panel.closing {
+    height: 0;
+    padding: 0;
+}
+.day-status-buttons {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+}
+.day-status-buttons button {
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+    transition: background-color 0.2s ease;
+}
+.btn-sober {
+    background-color: #66bb6a;
+    color: #fff;
+}
+.btn-sober:hover {
+    background-color: #43a047;
+}
+.btn-medium {
+    background-color: #ffeb3b;
+    color: #333;
+}
+.btn-medium:hover {
+    background-color: #fdd835;
+}
+.btn-heavy {
+    background-color: #ef5350;
+    color: #fff;
+}
+.btn-heavy:hover {
+    background-color: #d32f2f;
+}
+
+/* ============ MODALS ============ */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+.fade-in {
+    animation: fadeIn 0.3s forwards;
+}
+.fade-out {
+    animation: fadeOut 0.3s forwards;
+}
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+@keyframes fadeOut {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+}
+.scale-in {
+    animation: scaleIn 0.3s forwards;
+}
+.scale-out {
+    animation: scaleOut 0.3s forwards;
+}
+@keyframes scaleIn {
+    0% { transform: scale(0.8); }
+    100% { transform: scale(1); }
+}
+@keyframes scaleOut {
+    0% { transform: scale(1); }
+    100% { transform: scale(0.8); }
+}
+.modal-content {
+    background-color: #fff;
+    border-radius: 10px;
+    width: 700px;
+    max-width: 90%;
+    padding: 2rem;
+    position: relative;
+    min-height: 300px;
+}
+.large-modal {
+    width: 700px;
+    max-width: 90%;
+}
+.achievement-list {
+    list-style: none;
+    margin: 1rem 0 0;
+    padding: 0;
+}
+.achievement-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fafafa;
+    margin-bottom: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: 6px;
+}
+.achievement-status.unlocked {
+    background-color: #66bb6a;
+    color: #fff;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 30px;
+}
+.achievement-status.locked {
+    background-color: #f44336;
+    color: #fff;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 30px;
+}

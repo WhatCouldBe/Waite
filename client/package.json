@@ -1,0 +1,34 @@
+{
+  "name": "bacshots-client",
+  "version": "1.0.0",
+  "private": true,
+  "proxy": "http://localhost:4000",
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.14.2",
+    "react-scripts": "5.0.1",
+    "shx": "^0.3.4"
+  },
+  "scripts": {
+    "start": "PORT=3000 node ./node_modules/react-scripts/bin/react-scripts.js start",
+    "build": "node ./node_modules/react-scripts/bin/react-scripts.js build",
+    "postinstall": "chmod +x ./node_modules/.bin/react-scripts || true"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "eslint-plugin-react-hooks": "^5.1.0",
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
+  }
+}
